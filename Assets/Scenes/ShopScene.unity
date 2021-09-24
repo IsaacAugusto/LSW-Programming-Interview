@@ -477,6 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1257367088}
   - component: {fileID: 1257367089}
+  - component: {fileID: 1257367090}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -518,6 +519,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1257367090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257367087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbedaf71c6c8ec47a14a34eea80eb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory: {fileID: 11400000, guid: 1141c9045995c4543a6391dfd0448009, type: 2}
+  _torsoRenderer: {fileID: 2082117642}
+  _leftArmRenderer: {fileID: 1643566252}
+  _rightArmRenderer: {fileID: 1988890231}
+  _leftLegRenderer: {fileID: 1682667851}
+  _rightLegRenderer: {fileID: 1022525356}
 --- !u!1 &1261079064
 GameObject:
   m_ObjectHideFlags: 0
