@@ -38,9 +38,10 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void SellItem(InventorySO playerInventory)
     {
         playerInventory.Coins += _price;
-        playerInventory.RemoveClothers(_item);
+        playerInventory.RemoveOwnedClothes(_item);
         UpdateItem(playerInventory);
         _shop.SelectItem(this);
+        playerInventory.UnequipClothes(_item);
     }
 
     public void EquipItem(InventorySO playerInventory)

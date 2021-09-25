@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public static bool CanMove;
+
     [SerializeField] private float _speed;
     private Rigidbody2D _rb;
     private Animator _anim;
-    private bool _canMove = true;
 
     private Vector2 _moveAxis;
 
@@ -16,6 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponentInChildren<Animator>();
+        CanMove = true;
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class PlayerBehaviour : MonoBehaviour
     /// </summary>
     private void Movement()
     {
-        if (_canMove)
+        if (CanMove)
         {
             _rb.velocity = _moveAxis.normalized * _speed;
         }

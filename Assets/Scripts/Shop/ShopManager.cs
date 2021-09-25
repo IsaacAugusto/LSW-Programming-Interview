@@ -8,6 +8,8 @@ public class ShopManager : MonoBehaviour
     public ShopInventory ShopGoods;
     public InventorySO PlayerInventory;
 
+    private ShopKeeper _shopKeeper;
+
     [SerializeField] private Text _playerCoinsText;
     [SerializeField] private RectTransform _itemsHolder;
     [SerializeField] private GameObject _itemPrefab;
@@ -24,6 +26,11 @@ public class ShopManager : MonoBehaviour
     {
         _playerCoinsText.text = PlayerInventory.Coins.ToString();
         ShowGoods();
+    }
+
+    public void SetShopKeeper(ShopKeeper keeper)
+    {
+        _shopKeeper = keeper;
     }
 
     public void ShowGoods()
@@ -72,6 +79,7 @@ public class ShopManager : MonoBehaviour
 
     public void CloseShop()
     {
+        _shopKeeper.EndInteraction();
         Destroy(this.gameObject);
     }
 

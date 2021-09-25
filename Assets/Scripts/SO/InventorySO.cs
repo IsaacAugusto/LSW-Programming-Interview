@@ -33,7 +33,36 @@ public class InventorySO : ScriptableObject
         OnValidadeAction?.Invoke();
     }
 
-    public void RemoveClothers(ClothesSO item)
+    public void UnequipClothes(ClothesSO item)
+    {
+        switch (item.Type)
+        {
+            case ClothesSO.ClothesType.Torso:
+                if (TorsoCloth.Equals(item))
+                    Equip(DefaultClothes.TorsoDefault);
+                break;
+            case ClothesSO.ClothesType.LeftArm:
+                if (LeftArmCloth.Equals(item))
+                    Equip(DefaultClothes.LeftArmDefault);
+                break;
+            case ClothesSO.ClothesType.RightArm:
+                if (RightArmCloth.Equals(item))
+                    Equip(DefaultClothes.RightArmDefault);
+                break;
+            case ClothesSO.ClothesType.LeftLeg:
+                if (LeftLegCloth.Equals(item))
+                    Equip(DefaultClothes.LeftLegDefault);
+                break;
+            case ClothesSO.ClothesType.RightLeg:
+                if (RightLegCloth.Equals(item))
+                    Equip(DefaultClothes.RightLegDefault);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void RemoveOwnedClothes(ClothesSO item)
     {
         if (OwnedClothes.Contains(item))
         {
