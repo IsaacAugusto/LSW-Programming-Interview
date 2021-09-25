@@ -42,6 +42,8 @@ public class InventorySO : ScriptableObject
         if (!OwnedClothes.Contains(DefaultClothes.RightArmDefault)) { OwnedClothes.Add(DefaultClothes.RightArmDefault); }
         if (!OwnedClothes.Contains(DefaultClothes.LeftLegDefault)) { OwnedClothes.Add(DefaultClothes.LeftLegDefault); }
         if (!OwnedClothes.Contains(DefaultClothes.RightLegDefault)) { OwnedClothes.Add(DefaultClothes.RightLegDefault); }
+
+        OwnedClothes.RemoveAll((x) => x == null);
     }
 
     public void Equip(ClothesSO clothes)

@@ -10,4 +10,5 @@ public class ClothesSO : ScriptableObject
 
     public ClothesType Type;
     public Sprite Sprite;
+    public int Price;
 }

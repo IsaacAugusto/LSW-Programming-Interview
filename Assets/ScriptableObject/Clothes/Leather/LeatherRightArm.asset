@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Sprite: {fileID: 21300000, guid: 956450e0fbfb1e2429ff51da98f6f1aa, type: 3}
+  Price: 25
