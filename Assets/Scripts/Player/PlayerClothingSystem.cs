@@ -16,14 +16,20 @@ public class PlayerClothingSystem : MonoBehaviour
     [SerializeField] private SpriteRenderer _leftLegRenderer;
     [SerializeField] private SpriteRenderer _rightLegRenderer;
 
-    private void Start()
+    private void Awake()
     {
         Inventory.OnValidadeAction += UpdateClothings;
+
     }
 
     private void OnDestroy()
     {
         Inventory.OnValidadeAction -= UpdateClothings;
+    }
+
+    private void OnEnable()
+    {
+        UpdateClothings();
     }
 
     private void UpdateClothings()

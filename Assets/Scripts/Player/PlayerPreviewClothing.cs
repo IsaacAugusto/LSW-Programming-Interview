@@ -15,9 +15,14 @@ public class PlayerPreviewClothing : MonoBehaviour
     [SerializeField] private Image _leftLegRenderer;
     [SerializeField] private Image _rightLegRenderer;
 
-    private void Start()
+    private void Awake()
     {
         Inventory.OnValidadeAction += UpdateClothings;
+    }
+
+    private void OnEnable()
+    {
+        UpdateClothings();
     }
 
     private void OnDestroy()

@@ -33,6 +33,22 @@ public class InventorySO : ScriptableObject
         OnValidadeAction?.Invoke();
     }
 
+    public void RemoveClothers(ClothesSO item)
+    {
+        if (OwnedClothes.Contains(item))
+        {
+            OwnedClothes.Remove(item);
+        }
+    }
+
+    public void AdquireClothes(ClothesSO item)
+    {
+        if (!OwnedClothes.Contains(item))
+        {
+            OwnedClothes.Add(item);
+        }
+    }
+
     public void WarmUpDefaultClothes()
     {
         DefaultClothes = Resources.Load<DefaultClothesSO>("DefaultClothes");

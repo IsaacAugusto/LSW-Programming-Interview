@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySO Inventory;
 
-    void Start()
+    private void Awake()
     {
         LoadInventory();
     }
@@ -25,6 +25,7 @@ public class InventoryManager : MonoBehaviour
     public void LoadInventory()
     {
         ScriptableSaveSystem.InventoryLoad(Inventory);
+
         Inventory.OnValidadeAction?.Invoke();
     }
 

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5244dacaafdbd942a9ed7ef3c33229a, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  Coins: 20
-  TorsoCloth: {fileID: 11400000, guid: c3fdd510275690f43bd5e6a901440e27, type: 2}
-  LeftArmCloth: {fileID: 11400000, guid: 0bb230468c341ab429226fa915496882, type: 2}
-  RightArmCloth: {fileID: 11400000, guid: 55fca1e2a969fee4fa4c66efc9e8b05a, type: 2}
-  LeftLegCloth: {fileID: 11400000, guid: 642eb6c38fd5d6a41a16060446b0708d, type: 2}
-  RightLegCloth: {fileID: 11400000, guid: 67e856532f0ccf44abd4961ea5a0d3e1, type: 2}
+  Coins: 300
+  TorsoCloth: {fileID: 0}
+  LeftArmCloth: {fileID: 0}
+  RightArmCloth: {fileID: 0}
+  LeftLegCloth: {fileID: 0}
+  RightLegCloth: {fileID: 0}
   DefaultClothes: {fileID: 11400000, guid: b44f3ca4ff2c805478fea8bea6f65233, type: 2}
   OwnedClothes:
   - {fileID: 11400000, guid: d2b9345670dcfc44c865fdfa56b195ca, type: 2}
