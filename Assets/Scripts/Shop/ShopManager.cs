@@ -24,6 +24,7 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+        LeanTween.moveY((RectTransform)transform.GetChild(0), 0, 1).setEaseOutBack();
         _playerCoinsText.text = PlayerInventory.Coins.ToString();
         ShowGoods();
     }
@@ -53,7 +54,7 @@ public class ShopManager : MonoBehaviour
 
     public void BuyItem()
     {
-        if (_selectedItem != null)
+        if (_selectedItem != null && !PlayerInteractions.CanInteract)
         {
             _selectedItem.BuyItem(PlayerInventory);
             UpdateGoods();
@@ -62,7 +63,7 @@ public class ShopManager : MonoBehaviour
 
     public void SellItem()
     {
-        if (_selectedItem != null)
+        if (_selectedItem != null && !PlayerInteractions.CanInteract)
         {
             _selectedItem.SellItem(PlayerInventory);
             UpdateGoods();
@@ -71,7 +72,7 @@ public class ShopManager : MonoBehaviour
 
     public void EquipItem()
     {
-        if (_selectedItem != null)
+        if (_selectedItem != null && !PlayerInteractions.CanInteract)
         {
             _selectedItem.EquipItem(PlayerInventory);
         }
@@ -80,7 +81,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         _shopKeeper.EndInteraction();
-        Destroy(this.gameObject);
+        LeanTween.moveY((RectTransform)transform.GetChild(0), -1100, 1).setEaseInBack().setOnComplete(()=>Destroy(gameObject));
     }
 
     public void SelectItem(ShopItem selected)
