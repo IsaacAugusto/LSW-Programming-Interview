@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5244dacaafdbd942a9ed7ef3c33229a, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  Coins: 0
+  Coins: 5
   TorsoCloth: {fileID: 21300000, guid: d282fd87ae21b864a925dc22052e3175, type: 3}
   LeftArmCloth: {fileID: 21300000, guid: b9ea54dd37b90584da41ea52f3f15622, type: 3}
   RightArmCloth: {fileID: 21300000, guid: 5aba0da162865f64196cc80d5372c0d4, type: 3}
