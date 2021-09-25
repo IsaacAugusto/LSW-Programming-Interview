@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49f106e627c1f094b9eaad67e8c92b71, type: 3}
+  m_Name: DefaultClothes
+  m_EditorClassIdentifier: 
+  TorsoDefault: {fileID: 11400000, guid: d2b9345670dcfc44c865fdfa56b195ca, type: 2}
+  LeftArmDefault: {fileID: 11400000, guid: b29b361eadc11ac4baf3fdab09c18b14, type: 2}
+  RightArmDefault: {fileID: 11400000, guid: d3f127f90e54f9d4c8201ebc74a9ecf8, type: 2}
+  LeftLegDefault: {fileID: 11400000, guid: fbf273eaeeea5ae46b3ecb8457ef0fe8, type: 2}
+  RightLegDefault: {fileID: 11400000, guid: 066ab010c216a05459145e4e131f9293, type: 2}

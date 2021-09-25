@@ -19,7 +19,6 @@ public class PlayerClothingSystem : MonoBehaviour
     private void Start()
     {
         Inventory.OnValidadeAction += UpdateClothings;
-        UpdateClothings();
     }
 
     private void OnDestroy()
@@ -29,10 +28,19 @@ public class PlayerClothingSystem : MonoBehaviour
 
     private void UpdateClothings()
     {
-        _torsoRenderer.sprite = Inventory.TorsoCloth;
-        _leftArmRenderer.sprite = Inventory.LeftArmCloth;
-        _rightArmRenderer.sprite = Inventory.RightArmCloth;
-        _leftLegRenderer.sprite = Inventory.LeftLegCloth;
-        _rightLegRenderer.sprite = Inventory.RightLegCloth;
+        _torsoRenderer.sprite = Inventory.TorsoCloth != null ?
+            Inventory.TorsoCloth.Sprite : Inventory.DefaultClothes.TorsoDefault.Sprite;
+
+        _leftArmRenderer.sprite = Inventory.LeftArmCloth != null?
+            Inventory.LeftArmCloth.Sprite : Inventory.DefaultClothes.LeftArmDefault.Sprite;
+
+        _rightArmRenderer.sprite = Inventory.RightArmCloth != null?
+            Inventory.RightArmCloth.Sprite : Inventory.DefaultClothes.RightArmDefault.Sprite; 
+
+        _leftLegRenderer.sprite = Inventory.LeftLegCloth != null?
+            Inventory.LeftLegCloth.Sprite : Inventory.DefaultClothes.LeftLegDefault.Sprite;
+
+        _rightLegRenderer.sprite = Inventory.RightLegCloth != null?
+            Inventory.RightLegCloth.Sprite : Inventory.DefaultClothes.RightLegDefault.Sprite;
     }
 }

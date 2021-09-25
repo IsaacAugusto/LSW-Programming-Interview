@@ -25,5 +25,6 @@ public class ScriptableSaveSystem
             var json = File.ReadAllText($"{Application.persistentDataPath}/SaveData/Inventory");
             JsonUtility.FromJsonOverwrite(json, inventory);
         }
+        inventory.WarmUpDefaultClothes();
     }
 }

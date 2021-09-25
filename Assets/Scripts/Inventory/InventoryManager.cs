@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,14 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySO Inventory;
 
-    public List<Sprite> Torso;
-
     void Start()
     {
-        ScriptableSaveSystem.InventoryLoad(Inventory);
+        LoadInventory();
     }
 
-    public void RandomizeClothes()
+    private void OnApplicationQuit()
     {
-        int random = Random.Range(0, Torso.Count);
-        Inventory.TorsoCloth = Torso[random];
-        Inventory.OnValidadeAction();
+        SaveInventory();
     }
 
     public void SaveInventory()
@@ -25,8 +22,26 @@ public class InventoryManager : MonoBehaviour
         ScriptableSaveSystem.InventorySave(Inventory);
     }
 
-    void Update()
+    public void LoadInventory()
     {
-        
+        ScriptableSaveSystem.InventoryLoad(Inventory);
+        Inventory.OnValidadeAction?.Invoke();
+    }
+
+    public void EquipRandomClothes()
+    {
+        List<ClothesSO> ownedPieces;
+        int random;
+        foreach (int typeNumber in Enum.GetValues(typeof(ClothesSO.ClothesType)))
+        {
+            ownedPieces = Inventory.OwnedClothes.FindAll((clothe) => clothe.Type == (ClothesSO.ClothesType)typeNumber);
+            random = UnityEngine.Random.Range(0, ownedPieces.Count);
+            EquipClothes(ownedPieces[random]);
+        }
+    }
+
+    public void EquipClothes(ClothesSO clothes)
+    {
+        Inventory.Equip(clothes);
     }
 }
