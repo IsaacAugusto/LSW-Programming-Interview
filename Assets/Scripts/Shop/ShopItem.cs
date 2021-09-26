@@ -35,6 +35,7 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         playerInventory.AdquireClothes(_item);
         UpdateItem(playerInventory);
         _shop.SelectItem(this);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
     public void SellItem(InventorySO playerInventory)
@@ -44,6 +45,7 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         UpdateItem(playerInventory);
         _shop.SelectItem(this);
         playerInventory.UnequipClothes(_item);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
     public void EquipItem(InventorySO playerInventory)
@@ -79,6 +81,7 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void SelectItem()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.ClickSound);
         gameObject.GetComponentInChildren<Outline>().enabled = true;
         _shop.SelectItem(this);
     }
@@ -92,6 +95,7 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         LeanTween.cancel(gameObject);
         LeanTween.scale(gameObject, _selectedObjectScale, .2f);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.HoverButtonSound);
     }
 
     public void OnPointerExit(PointerEventData eventData)

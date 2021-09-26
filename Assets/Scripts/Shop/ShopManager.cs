@@ -26,6 +26,7 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         LeanTween.moveY(_containerHolder, 0, 1).setEaseOutBack();
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.OpenStoreSound);
         _playerCoinsText.text = PlayerInventory.Coins.ToString();
         ShowGoods();
     }
@@ -82,6 +83,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         _shopKeeper.EndInteraction();
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.ClickSound);
         LeanTween.moveY(_containerHolder, -1100, 1).setEaseInBack().setOnComplete(()=>Destroy(gameObject));
     }
 

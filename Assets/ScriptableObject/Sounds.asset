@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd54b4c9e8cdc8b46b6c28815c827248, type: 3}
+  m_Name: Sounds
+  m_EditorClassIdentifier: 
+  ClickSound: {fileID: 8300000, guid: 7834d0259ee23874fb4692b67b3485f3, type: 3}
+  HoverButtonSound: {fileID: 8300000, guid: b6aa999c25d38d24c973f373846ec48e, type: 3}
+  CoinSound: {fileID: 8300000, guid: 7213a0d088c34874a9988f46f1fe319c, type: 3}
+  EquipSound: {fileID: 8300000, guid: 12f2d93b427edae41ba7c85fd176a636, type: 3}
+  OpenStoreSound: {fileID: 8300000, guid: df9912830adb880478153a5bc053a2ec, type: 3}
+  OpenMenuSound: {fileID: 8300000, guid: 30695ddd0b28bb543904edd5a4701c86, type: 3}

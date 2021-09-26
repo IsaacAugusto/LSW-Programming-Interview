@@ -43,6 +43,7 @@ public class InventorySO : ScriptableObject
         {
             Coins = 1000;
         }
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
     public void ReduceCoins(int amount)
@@ -55,6 +56,7 @@ public class InventorySO : ScriptableObject
         {
             Coins = 0;
         }
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
     public void UnequipClothes(ClothesSO item)
@@ -137,6 +139,7 @@ public class InventorySO : ScriptableObject
             default:
                 break;
         }
+        SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.EquipSound);
         OnValidadeAction?.Invoke();
     }
 }
