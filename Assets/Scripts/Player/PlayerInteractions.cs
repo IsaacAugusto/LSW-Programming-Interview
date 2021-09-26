@@ -43,7 +43,6 @@ public class PlayerInteractions : MonoBehaviour
             {
                 result.GetComponent<IInteractable>().Interact();
                 SetPlayerInteracting(true);
-                //temporariamente pegando só 1
                 return;
             }
         }
