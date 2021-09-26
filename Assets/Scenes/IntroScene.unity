@@ -2084,7 +2084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060f0be38251f0a419be4db6897495f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Use "E" to interact with objects in the world.
+  Text: Use "E" to interact with objects in the world. Click on this message to close.
 --- !u!61 &1627934631
 BoxCollider2D:
   m_ObjectHideFlags: 0

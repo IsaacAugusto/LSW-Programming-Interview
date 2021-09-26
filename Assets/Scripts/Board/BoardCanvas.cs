@@ -21,6 +21,14 @@ public class BoardCanvas : MonoBehaviour
         LeanTween.scaleY(_boardContainer, 1, .2f);
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Interact") && !PlayerInteractions.CanInteract)
+        {
+            CloseBoard();
+        }
+    }
+
     public void CloseBoard()
     {
         _board.EndInteraction();
