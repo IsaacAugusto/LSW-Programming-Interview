@@ -20,6 +20,11 @@ public class PlayerInteractions : MonoBehaviour
         {
             Interact();
         }
+
+        if (Input.GetButtonDown("Pause") && CanInteract)
+        {
+            Instantiate(Resources.Load<GameObject>("PauseCanvas"));
+        }
     }
 
     public static void SetPlayerInteracting(bool value)

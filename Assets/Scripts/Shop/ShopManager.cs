@@ -12,6 +12,7 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private Text _playerCoinsText;
     [SerializeField] private RectTransform _itemsHolder;
+    [SerializeField] private RectTransform _containerHolder;
     [SerializeField] private GameObject _itemPrefab;
 
     [Space]
@@ -24,7 +25,7 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        LeanTween.moveY((RectTransform)transform.GetChild(0), 0, 1).setEaseOutBack();
+        LeanTween.moveY(_containerHolder, 0, 1).setEaseOutBack();
         _playerCoinsText.text = PlayerInventory.Coins.ToString();
         ShowGoods();
     }
@@ -81,7 +82,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         _shopKeeper.EndInteraction();
-        LeanTween.moveY((RectTransform)transform.GetChild(0), -1100, 1).setEaseInBack().setOnComplete(()=>Destroy(gameObject));
+        LeanTween.moveY(_containerHolder, -1100, 1).setEaseInBack().setOnComplete(()=>Destroy(gameObject));
     }
 
     public void SelectItem(ShopItem selected)

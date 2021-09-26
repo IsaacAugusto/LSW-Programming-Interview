@@ -33,6 +33,30 @@ public class InventorySO : ScriptableObject
         OnValidadeAction?.Invoke();
     }
 
+    public void AddCoins(int amount)
+    {
+        if (Coins + amount <= 1000)
+        {
+            Coins += amount;
+        }
+        else
+        {
+            Coins = 1000;
+        }
+    }
+
+    public void ReduceCoins(int amount)
+    {
+        if (Coins - amount >= 0)
+        {
+            Coins -= amount;
+        }
+        else
+        {
+            Coins = 0;
+        }
+    }
+
     public void UnequipClothes(ClothesSO item)
     {
         switch (item.Type)

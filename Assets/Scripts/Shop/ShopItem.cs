@@ -16,6 +16,8 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private Vector2 _selectedObjectScale = new Vector2(1.2f, 1.2f);
 
+    private static Color _canBuyColor = new Color(207, 142, 48);
+
     public void SetItemData(ClothesSO clothe, InventorySO playerInventory, ShopManager shopManager)
     {
         _image.sprite = clothe.Sprite;
@@ -69,8 +71,8 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         else
         {
+            _priceText.color = Color.black;
             _priceText.gameObject.SetActive(true);
-            _priceText.color = Color.white;
             ItemStatus = ShopItemStatus.CanBuy;
         }
     }
