@@ -34,19 +34,14 @@ public class PlayerClothingSystem : MonoBehaviour
 
     private void UpdateClothings()
     {
-        _torsoRenderer.sprite = Inventory.TorsoCloth != null ?
-            Inventory.TorsoCloth.Sprite : Inventory.DefaultClothes.TorsoDefault.Sprite;
+        _torsoRenderer.sprite = Inventory.TorsoCloth.Sprite;
 
-        _leftArmRenderer.sprite = Inventory.LeftArmCloth != null?
-            Inventory.LeftArmCloth.Sprite : Inventory.DefaultClothes.LeftArmDefault.Sprite;
+        _leftArmRenderer.sprite = Inventory.LeftArmCloth.Sprite;
 
-        _rightArmRenderer.sprite = Inventory.RightArmCloth != null?
-            Inventory.RightArmCloth.Sprite : Inventory.DefaultClothes.RightArmDefault.Sprite; 
+        _rightArmRenderer.sprite = Inventory.RightArmCloth.Sprite;
 
-        _leftLegRenderer.sprite = Inventory.LeftLegCloth != null?
-            Inventory.LeftLegCloth.Sprite : Inventory.DefaultClothes.LeftLegDefault.Sprite;
+        _leftLegRenderer.sprite = Inventory.LeftLegCloth.Sprite;
 
-        _rightLegRenderer.sprite = Inventory.RightLegCloth != null?
-            Inventory.RightLegCloth.Sprite : Inventory.DefaultClothes.RightLegDefault.Sprite;
+        _rightLegRenderer.sprite = Inventory.RightLegCloth.Sprite;
     }
 }

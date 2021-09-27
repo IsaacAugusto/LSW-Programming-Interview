@@ -114,6 +114,12 @@ public class InventorySO : ScriptableObject
         if (!OwnedClothes.Contains(DefaultClothes.LeftLegDefault)) { OwnedClothes.Add(DefaultClothes.LeftLegDefault); }
         if (!OwnedClothes.Contains(DefaultClothes.RightLegDefault)) { OwnedClothes.Add(DefaultClothes.RightLegDefault); }
 
+        if (TorsoCloth == null) { TorsoCloth = DefaultClothes.TorsoDefault; }
+        if(LeftArmCloth == null) { LeftArmCloth = DefaultClothes.LeftArmDefault; }
+        if (RightArmCloth == null) { RightArmCloth = DefaultClothes.RightArmDefault; }
+        if (LeftLegCloth == null) { LeftLegCloth = DefaultClothes.LeftLegDefault; }
+        if (RightLegCloth == null) { RightLegCloth = DefaultClothes.RightLegDefault; }
+
         OwnedClothes.RemoveAll((x) => x == null);
     }
 
