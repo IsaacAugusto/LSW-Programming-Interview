@@ -105,10 +105,17 @@ public class ShopManager : MonoBehaviour
     {
         if (_selectedItem != null)
         {
-            _sellButton.gameObject.SetActive(_selectedItem.ItemStatus == ShopItem.ShopItemStatus.AlreadyOwned);
+
+            _sellButton.gameObject.SetActive(_selectedItem.ItemStatus == ShopItem.ShopItemStatus.AlreadyOwned
+                || _selectedItem.ItemStatus == ShopItem.ShopItemStatus.Equiped);
+
             _equipButton.gameObject.SetActive(_selectedItem.ItemStatus == ShopItem.ShopItemStatus.AlreadyOwned);
-            _buyButton.gameObject.SetActive(_selectedItem.ItemStatus != ShopItem.ShopItemStatus.AlreadyOwned);
+
+            _buyButton.gameObject.SetActive(_selectedItem.ItemStatus != ShopItem.ShopItemStatus.AlreadyOwned 
+                && _selectedItem.ItemStatus != ShopItem.ShopItemStatus.Equiped);
+
             _buyButton.interactable = _selectedItem.ItemStatus == ShopItem.ShopItemStatus.CanBuy;
+
         }
     }
 }

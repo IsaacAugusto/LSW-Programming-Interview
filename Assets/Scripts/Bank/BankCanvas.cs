@@ -18,14 +18,14 @@ public class BankCanvas : MonoBehaviour
 
     void Start()
     {
-        LeanTween.moveY((RectTransform)_painel.transform, 0, 1).setEaseOutBack();
+        LeanTween.moveY((RectTransform)_painel.transform, 0, .5f).setEaseOutBack();
         UpdateCoinsText();
     }
 
     public void Close()
     {
         _bankInteractable.EndInteraction();
-        LeanTween.moveY((RectTransform)_painel.transform, -1100, 1).setEaseInBack().setOnComplete(() => Destroy(gameObject));
+        LeanTween.moveY((RectTransform)_painel.transform, -1100, .5f).setEaseInBack().setOnComplete(() => Destroy(gameObject));
     }
 
     public void AddCoinsButton()

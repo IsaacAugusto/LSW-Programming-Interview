@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDeselectHandler
 {
-    public enum ShopItemStatus { CanBuy, CannotBuy, AlreadyOwned }
+    public enum ShopItemStatus { CanBuy, CannotBuy, AlreadyOwned, Equiped }
 
     [SerializeField] private Image _image;
     [SerializeField] private Text _priceText;
+    [SerializeField] private Text _equipedText;
 
     public ShopItemStatus ItemStatus;
     private int _price;
@@ -15,8 +16,6 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private ClothesSO _item;
 
     private Vector2 _selectedObjectScale = new Vector2(1.2f, 1.2f);
-
-    private static Color _canBuyColor = new Color(207, 142, 48);
 
     public void SetItemData(ClothesSO clothe, InventorySO playerInventory, ShopManager shopManager)
     {
@@ -42,15 +41,18 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         playerInventory.Coins += _price;
         playerInventory.RemoveOwnedClothes(_item);
+        playerInventory.UnequipClothes(_item);
         UpdateItem(playerInventory);
         _shop.SelectItem(this);
-        playerInventory.UnequipClothes(_item);
         SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
     public void EquipItem(InventorySO playerInventory)
     {
         playerInventory.Equip(_item);
+        UpdateItem(playerInventory);
+        _shop.SelectItem(this);
+
     }
 
     public void UpdateItem(InventorySO playerInventory)
@@ -60,23 +62,26 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void CheckItemStatus(ClothesSO item, InventorySO playerInventory)
     {
-        if (playerInventory.OwnedClothes.Contains(item))
+        if (playerInventory.CheckEquiped(item))
         {
-            _priceText.gameObject.SetActive(false);
+            ItemStatus = ShopItemStatus.Equiped;
+        }
+        else if (playerInventory.OwnedClothes.Contains(item))
+        {
             ItemStatus = ShopItemStatus.AlreadyOwned;
         }
         else if (playerInventory.Coins < _price)
         {
-            _priceText.gameObject.SetActive(true);
-            _priceText.color = Color.red;
             ItemStatus = ShopItemStatus.CannotBuy;
         }
         else
         {
-            _priceText.color = Color.black;
-            _priceText.gameObject.SetActive(true);
             ItemStatus = ShopItemStatus.CanBuy;
         }
+
+        _priceText.color = ItemStatus == ShopItemStatus.CanBuy ? Color.black : _priceText.color = Color.red; ;
+        _priceText.gameObject.SetActive(ItemStatus != ShopItemStatus.AlreadyOwned && ItemStatus != ShopItemStatus.Equiped);
+        _equipedText.gameObject.SetActive(ItemStatus == ShopItemStatus.Equiped);
     }
 
     private void SelectItem()

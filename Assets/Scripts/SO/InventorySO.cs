@@ -59,6 +59,13 @@ public class InventorySO : ScriptableObject
         SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
+    public bool CheckEquiped(ClothesSO item)
+    {
+        return (RightLegCloth == item) || (LeftLegCloth == item)
+            || (RightArmCloth == item) || (LeftArmCloth == item)
+            || (TorsoCloth == item);
+    }
+
     public void UnequipClothes(ClothesSO item)
     {
         switch (item.Type)

@@ -248,7 +248,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 247.5, y: -125}
-  m_SizeDelta: {x: 155, y: 150}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &377793084
 CanvasRenderer:
@@ -446,7 +446,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 402.5, y: -125}
-  m_SizeDelta: {x: 155, y: 150}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1210266916
 CanvasRenderer:
@@ -658,7 +658,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 92.5, y: -125}
-  m_SizeDelta: {x: 155, y: 150}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1724035346
 CanvasRenderer:
@@ -1115,6 +1115,7 @@ MonoBehaviour:
   _itemsHolder: {fileID: 2145903928213969221}
   _containerHolder: {fileID: 3477075776662427402}
   _itemPrefab: {fileID: 1261405822787017331, guid: e8f8e6531c86de846a9eac7afd7520f6, type: 3}
+  _buttonHolder: {fileID: 496323800}
   _buyButton: {fileID: 1724035344}
   _sellButton: {fileID: 377793082}
   _equipButton: {fileID: 1210266914}
