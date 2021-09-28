@@ -27,12 +27,19 @@ public class PlayerInteractions : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set if the player is current interacting with some menu or object to ignore player movement inputs and other interactions.
+    /// </summary>
     public static void SetPlayerInteracting(bool value)
     {
         CanInteract = !value;
         PlayerBehaviour.CanMove = !value;
     }
 
+
+    /// <summary>
+    /// Look if theres any IInteractable in range and interact with it.
+    /// </summary>
     private void Interact()
     {
         ClearResults();

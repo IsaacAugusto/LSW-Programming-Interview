@@ -31,20 +31,29 @@ public class ShopManager : MonoBehaviour
         ShowGoods();
     }
 
+    /// <summary>
+    /// Link this shop with the shopkeeper that opened it.
+    /// </summary>
     public void SetShopKeeper(ShopKeeper keeper)
     {
         _shopKeeper = keeper;
     }
 
+    /// <summary>
+    /// Show items that are available on the shop inventory.
+    /// </summary>
     public void ShowGoods()
     {
         ClearView();
-        foreach(ClothesSO clothe in ShopGoods.Items)
+        foreach(ClothesSO cloth in ShopGoods.Items)
         {
-            Instantiate(_itemPrefab, _itemsHolder).GetComponent<ShopItem>().SetItemData(clothe, PlayerInventory, this);
+            Instantiate(_itemPrefab, _itemsHolder).GetComponent<ShopItem>().SetItemData(cloth, PlayerInventory, this);
         }
     }
 
+    /// <summary>
+    /// Updates all available items visuals and states.
+    /// </summary>
     private void UpdateGoods()
     {
         _playerCoinsText.text = PlayerInventory.Coins.ToString();
@@ -93,6 +102,9 @@ public class ShopManager : MonoBehaviour
         UpdateButtons();
     }
 
+    /// <summary>
+    /// Clear all itens on shop canvas.
+    /// </summary>
     private void ClearView()
     {
         foreach(Transform child in _itemsHolder)
@@ -101,6 +113,9 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the shop actions buttons (buy, sell, equip) for the selected item.
+    /// </summary>
     private void UpdateButtons()
     {
         if (_selectedItem != null)

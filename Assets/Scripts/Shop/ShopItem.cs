@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IDeselectHandler
 {
+    //Enum that hold the possible states of an item in shop.
     public enum ShopItemStatus { CanBuy, CannotBuy, AlreadyOwned, Equiped }
 
     [SerializeField] private Image _image;
@@ -15,19 +16,26 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private ShopManager _shop;
     private ClothesSO _item;
 
+    //Scale to grow the button when hovered by mouse.
     private Vector2 _selectedObjectScale = new Vector2(1.2f, 1.2f);
 
-    public void SetItemData(ClothesSO clothe, InventorySO playerInventory, ShopManager shopManager)
+    /// <summary>
+    /// Function to feed the data that ShopItem needs.
+    /// </summary>
+    public void SetItemData(ClothesSO cloth, InventorySO playerInventory, ShopManager shopManager)
     {
-        _image.sprite = clothe.Sprite;
-        _price = clothe.Price;
+        _image.sprite = cloth.Sprite;
+        _price = cloth.Price;
         _priceText.text = _price.ToString();
         _shop = shopManager;
-        _item = clothe;
+        _item = cloth;
 
-        CheckItemStatus(clothe, playerInventory);
+        CheckItemStatus(cloth, playerInventory);
     }
 
+    /// <summary>
+    /// Remove the price of the item from the player coins, add item to inventory and updates visual on shop.
+    /// </summary>
     public void BuyItem(InventorySO playerInventory)
     {
         playerInventory.Coins -= _price;
@@ -37,6 +45,9 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
+    /// <summary>
+    /// Add the price of the item to the player coins, check if is equipped and remove item from inventory and updates visual on shop.
+    /// </summary>
     public void SellItem(InventorySO playerInventory)
     {
         playerInventory.Coins += _price;
@@ -47,6 +58,9 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
+    /// <summary>
+    /// Equip item on the player inventory.
+    /// </summary>
     public void EquipItem(InventorySO playerInventory)
     {
         playerInventory.Equip(_item);
@@ -55,11 +69,17 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     }
 
+    /// <summary>
+    /// Updates the item on shop.
+    /// </summary>
     public void UpdateItem(InventorySO playerInventory)
     {
         CheckItemStatus(_item, playerInventory);
     }
 
+    /// <summary>
+    /// Check and updates the item status and updates the visuals of it on shop.
+    /// </summary>
     private void CheckItemStatus(ClothesSO item, InventorySO playerInventory)
     {
         if (playerInventory.CheckEquiped(item))
@@ -84,6 +104,9 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _equipedText.gameObject.SetActive(ItemStatus == ShopItemStatus.Equiped);
     }
 
+    /// <summary>
+    /// Set item as selected when is clicked on shop.
+    /// </summary>
     private void SelectItem()
     {
         SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.ClickSound);
@@ -91,11 +114,17 @@ public class ShopItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _shop.SelectItem(this);
     }
 
+    /// <summary>
+    /// Remove selection from the item.
+    /// </summary>
     private void DeselectItem()
     {
         gameObject.GetComponentInChildren<Outline>().enabled = false;
     }
 
+    /// <summary>
+    /// Detects when the mouse enters the item area to animate and play soundclips;
+    /// </summary>
     public void OnPointerEnter(PointerEventData eventData)
     {
         LeanTween.cancel(gameObject);

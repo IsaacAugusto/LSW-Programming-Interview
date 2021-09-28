@@ -28,6 +28,7 @@ public class InventorySO : ScriptableObject
     [Header("OnValidadeEvent")]
     public Action OnValidadeAction;
 
+
     private void OnValidate()
     {
         OnValidadeAction?.Invoke();
@@ -59,6 +60,9 @@ public class InventorySO : ScriptableObject
         SoundManager.Instance.PlaySound(SoundManager.Instance.Sounds.CoinSound);
     }
 
+    /// <summary>
+    /// Returns if an item is equiped.
+    /// </summary>
     public bool CheckEquiped(ClothesSO item)
     {
         return (RightLegCloth == item) || (LeftLegCloth == item)
@@ -66,6 +70,9 @@ public class InventorySO : ScriptableObject
             || (TorsoCloth == item);
     }
 
+    /// <summary>
+    /// Remove an item if equiped (Equips default cloth instead).
+    /// </summary>
     public void UnequipClothes(ClothesSO item)
     {
         switch (item.Type)
@@ -95,6 +102,9 @@ public class InventorySO : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Remove an cloth from the owned list.
+    /// </summary>
     public void RemoveOwnedClothes(ClothesSO item)
     {
         if (OwnedClothes.Contains(item))
@@ -103,6 +113,9 @@ public class InventorySO : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Add an cloth to the owned list;
+    /// </summary>
     public void AdquireClothes(ClothesSO item)
     {
         if (!OwnedClothes.Contains(item))
@@ -111,6 +124,9 @@ public class InventorySO : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Loads the defaults clothes from resources and equip it if none are current equipped.
+    /// </summary>
     public void WarmUpDefaultClothes()
     {
         DefaultClothes = Resources.Load<DefaultClothesSO>("DefaultClothes");
@@ -130,24 +146,27 @@ public class InventorySO : ScriptableObject
         OwnedClothes.RemoveAll((x) => x == null);
     }
 
-    public void Equip(ClothesSO clothes)
+    /// <summary>
+    /// Equip an cloth.
+    /// </summary>
+    public void Equip(ClothesSO cloth)
     {
-        switch (clothes.Type)
+        switch (cloth.Type)
         {
             case ClothesSO.ClothesType.Torso:
-                TorsoCloth = clothes;
+                TorsoCloth = cloth;
                 break;
             case ClothesSO.ClothesType.LeftArm:
-                LeftArmCloth = clothes;
+                LeftArmCloth = cloth;
                 break;
             case ClothesSO.ClothesType.RightArm:
-                RightArmCloth = clothes;
+                RightArmCloth = cloth;
                 break;
             case ClothesSO.ClothesType.LeftLeg:
-                LeftLegCloth = clothes;
+                LeftLegCloth = cloth;
                 break;
             case ClothesSO.ClothesType.RightLeg:
-                RightLegCloth = clothes;
+                RightLegCloth = cloth;
                 break;
             default:
                 break;

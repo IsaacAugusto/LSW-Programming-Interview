@@ -27,11 +27,10 @@ public class PlayerClothingSystem : MonoBehaviour
         Inventory.OnValidadeAction -= UpdateClothings;
     }
 
-    private void OnEnable()
-    {
-        UpdateClothings();
-    }
 
+    /// <summary>
+    /// Set sprites to get the clothes that are in the Inventory ScriptableObject, making visual feedback of what's equipped.
+    /// </summary>
     private void UpdateClothings()
     {
         _torsoRenderer.sprite = Inventory.TorsoCloth.Sprite;
